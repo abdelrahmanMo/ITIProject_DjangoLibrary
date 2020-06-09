@@ -1,0 +1,10 @@
+{% extends 'authors/base.html' %}
+
+{% block body %}
+<form  method='POST'>
+    {% csrf_token %}
+    <h1>Do you want to delete the product "{{ author.authorName }}"?</h1>
+    <p><input type='submit' value='Yes' class="btn btn-danger" />  <a href='/authors' class="btn btn-primary">Cancel</a></p>
+
+</form>
+{% endblock %}

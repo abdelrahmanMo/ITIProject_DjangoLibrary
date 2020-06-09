@@ -1,0 +1,23 @@
+{% extends "books/base.html" %}
+{% block body %}
+<div class="col-md-12">
+    <div class="jumbotron">
+         <a class="btn btn-primary" href="{% url 'books:create'  %}">Add New Book</a>
+    </div>
+</div>
+{% for book in all_books %}
+<div class="col-md-4 mt-4">
+                <div class="card" >
+                  <img src="{{book.bookImg.url}}" class="card-img-top" alt="...">
+                  <div class="card-body">
+                    <h5 class="card-title">{{ book.Name }}<hr>{{book.author.authorName}}</h5>
+                    <p class="card-text">{{book.description|truncatewords:10 }}</p>
+                    <a href="{% url 'books:book_detail' id=book.id %}" class="btn btn-primary">Know More</a>
+                      <a href="{% url 'books:delete' id=book.id %}" class="btn btn-danger">delete</a>
+                  </div>
+                </div>
+            </div>
+
+{% endfor %}
+
+{% endblock %}

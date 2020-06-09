@@ -1,0 +1,15 @@
+{% extends "books/base.html" %}
+{% block body %}
+            <div class="col-md-10">
+                <div class="card" >
+                  <img src="{{book.bookImg.url}}" class="card-img-top" alt="..." style=" width:100%;
+                    height:400px;">
+                  <div class="card-body">
+                    <h5 class="card-title">{{book}}</h5>
+                    <p class="card-text">{{book.description}}</p>
+                    <a href="{% url 'books:edit' id=book.id %}" class="btn btn-primary">Edit Post</a>
+                  </div>
+                </div>
+            </div>
+
+{% endblock body %}
